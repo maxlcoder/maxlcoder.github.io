@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang=zh>
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 类的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 1">
+    <meta name="description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 18">
+<meta name="keywords" content="laravel,mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel mongodb 扩展包使用案例">
 <meta property="og:url" content="https://maxlcoder.github.io/2019/09/19/laravel-mongodb-扩展包使用案例/index.html">
 <meta property="og:site_name" content="小木屋">
-<meta property="og:description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 类的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 1">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-19T01:50:03.697Z">
+<meta property="og:description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 18">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-19T05:29:15.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel mongodb 扩展包使用案例">
-<meta name="twitter:description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 类的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 1">
+<meta name="twitter:description" content="本文使用 jenssegers/mongodb 做案例演示，大部分的使用方式和 SQL 的使用类似，这里列举一些常见的用法，和一些比较特殊的用法   添加  1234567891011121314151617181920212223$res = DB::collection(&apos;users&apos;)-&amp;gt;insert([    &apos;name&apos; =&amp;gt; &apos;里斯&apos;,    &apos;age&apos; =&amp;gt; 18">
     
     
         
@@ -58,13 +59,17 @@
     <span id="nav">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/">首页</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/">关于</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/archives/">归档</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
         
       </ul>
     </span>
@@ -78,10 +83,10 @@
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
       </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
     </span>
     <br/>
     <div id="share" style="display: none">
@@ -131,8 +136,18 @@
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/laravel/">laravel</a>
+    </div>
+
 
       
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/laravel/">laravel</a>, <a class="tag-link" href="/tags/mongodb/">mongodb</a>
+    </div>
+
 
     </div>
   </header>
@@ -140,7 +155,7 @@
 
   <div class="content" itemprop="articleBody">
     <blockquote>
-<p>本文使用 <code>jenssegers/mongodb</code> 做案例演示，<br>大部分的使用方式和 <code>SQL</code> 类的使用类似，这里列举一些常见的用法，和一些比较特殊的用法</p>
+<p>本文使用 <code>jenssegers/mongodb</code> 做案例演示，<br>大部分的使用方式和 <code>SQL</code> 的使用类似，这里列举一些常见的用法，和一些比较特殊的用法</p>
 </blockquote>
 <ol>
 <li>添加</li>
@@ -186,13 +201,17 @@
     <div id="nav-footer" style="display: none">
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/">首页</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/">关于</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/archives/">归档</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
         
       </ul>
     </div>
@@ -218,10 +237,10 @@
     </div>
 
     <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
     </div>
 
   </div>
@@ -236,13 +255,17 @@
     <nav>
       <ul>
          
-          <li><a href="/">Home</a></li>
+          <li><a href="/">首页</a></li>
          
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/">关于</a></li>
          
-          <li><a href="/archives/">Writing</a></li>
+          <li><a href="/archives/">归档</a></li>
          
-          <li><a href="/projects_url">Projects</a></li>
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
         
       </ul>
     </nav>
@@ -263,7 +286,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
     btn += '<i class="far fa-clone"></i>';
     btn += '</span>'; 
     // mount it!
@@ -274,7 +297,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Copied!");
+      e.trigger.setAttribute('aria-label', "复制成功!");
       e.clearSelection();
     })
   })
