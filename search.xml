@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>大话数据结构笔记2</title>
+      <link href="/2019/09/23/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/"/>
+      <url>/2019/09/23/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B02/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是算法"><a href="#什么是算法" class="headerlink" title="什么是算法"></a>什么是算法</h2><p>算法是描述解决问题的方法。现实中通常是指通过一些列的指令解决某种问题。</p><h2 id="算法的要求"><a href="#算法的要求" class="headerlink" title="算法的要求"></a>算法的要求</h2><ol><li>正确性</li><li>可读性</li><li>健壮性</li><li>时间效率和空间效率</li></ol><h2 id="时间复杂度和空间复杂读"><a href="#时间复杂度和空间复杂读" class="headerlink" title="时间复杂度和空间复杂读"></a>时间复杂度和空间复杂读</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ol><li>Ø(1)</li></ol><p>计算次数和输入参数数量成正比</p><ol start="2"><li>Ø(n)</li></ol><p>通常对应一个 <code>for</code> 循环</p><ol start="3"><li><p>Ø(㏒n)</p><p><code>while</code> 循环，变化值以倍数的形式匹配条件</p></li><li><p>Ø(n^2)，类推</p></li></ol><p>通常是多次 <code>for</code> 循环</p><ol start="5"><li>Ø(n㏒n) </li></ol><p>基于之前的推导进行组合，也就是 <code>for</code> 与 <code>wihle</code> 循环的组合</p><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>问题的规模，与计算时所占用的空间大小，分析形式和时间复杂度类似</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大话数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大话数据结构笔记1</title>
       <link href="/2019/09/23/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B01/"/>
       <url>/2019/09/23/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B01/</url>
