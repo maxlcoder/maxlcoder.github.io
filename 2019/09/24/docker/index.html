@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="小木屋">
 <meta property="og:description" content="简介Docker的英文翻译是“搬运工”的意思，他搬运的东西就是我们常说的集装箱Container，Container 里面装的是任意类型的 App，我们的开发人员可以通过 Docker 将App 变成一种标准化的、可移植的、自管理的组件，我们可以在任何主流的操作系统中开发、调试和运行。 从概念上来看 Docker 和我们传统的虚拟机比较类似，只是更加轻量级，更加方便使，Docker 和虚拟机最主要">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T23:59:10.505Z">
+<meta property="og:updated_time" content="2019-09-27T00:00:00.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="简介Docker的英文翻译是“搬运工”的意思，他搬运的东西就是我们常说的集装箱Container，Container 里面装的是任意类型的 App，我们的开发人员可以通过 Docker 将App 变成一种标准化的、可移植的、自管理的组件，我们可以在任何主流的操作系统中开发、调试和运行。 从概念上来看 Docker 和我们传统的虚拟机比较类似，只是更加轻量级，更加方便使，Docker 和虚拟机最主要">
@@ -203,7 +203,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> docker login # 登陆 hub.docker.com 的账号</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> docker tag image username/repository:tag # 对镜像打标签，image: 镜像名，username：写自己hub上的实际用户名，repository: 仓库名，tag: 标签名</span><br><span class="line"><span class="meta">#</span> 下面是个示例</span><br><span class="line"><span class="meta">$</span> docker tag friendlyhello xxx/yyy:zz</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> docker push username/repository:tag # 发布镜像，参数说明同上</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 下次使用这个远端镜像的时候直接进行如下操作，docker 会去 pull 相关镜像，并运行</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> docker run -p 4000:80 username/repository:tag</span><br></pre></td></tr></table></figure>
 
-<h2 id="服务组合"><a href="#服务组合" class="headerlink" title="服务组合"></a>服务组合</h2><p>服务：运行一个或者多个相同的容器，可以指定容器的相关配置，如运行数量，暴露的端口等等。<br>服务组合：是将多种服务组成yi一个完成的应用，各服务相互配合。</p>
+<h2 id="服务组合"><a href="#服务组合" class="headerlink" title="服务组合"></a>服务组合</h2><p>服务：运行一个或者多个相同的容器，可以指定容器的相关配置，如运行数量，暴露的端口等等。<br>服务组合：是将多种服务组成一个完整的应用或者功能，各服务相互配合。</p>
 <p>依靠 <code>docker compose</code> 可以完成这些操作</p>
 <ol>
 <li>定义 docker-compose.yml</li>
